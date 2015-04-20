@@ -3,33 +3,45 @@ var api = require('conectarapi');
 
 $.index.title = "Demo ListView";
 
-// Obtenemos las personas
-api.obtenerPersonas(function(_respuesta){
+// Creamos la colección de modelos "Persona"
+var coleccionPersonas = Alloy.createCollection('Persona');
+
+// Solicitamos personas a la API REST
+// http://docs.appcelerator.com/backbone/0.9.2/#Collection-fetch
+coleccionPersonas.fetch({
 	
-	if (_respuesta.exito) {
+	// Éxito
+	success: function(_coleccion, _respuesta) {
 		
-		var datos = JSON.parse(_respuesta.datos);
-		datos = datos.results;
-		
-		var personas = _.map(datos, function (persona){
+		// Las colecciones en Backbone tiene una propiedad llamada "models" para acceder a ellos
+		var personas = _.map(_coleccion.models, function (persona){
+			
+			// Los modelos en Backbone tienen una propiedad llamada "attributes" que es una 
+			// representación en JSON de sus propiedades
+			var atributosPersona = persona.attributes;
+			
 			return {
 				properties: { 
-					datos: persona, 
-					searchableText: persona.user.name.first 
+					datos: atributosPersona, 
+					searchableText: atributosPersona.user.name.first 
 				},
-				foto: { image: persona.user.picture.thumbnail },
-				nombre: { text: persona.user.name.first },
-				apellido: { text: persona.user.name.last },
+				foto: { image: atributosPersona.user.picture.thumbnail },
+				nombre: { text: atributosPersona.user.name.first },
+				apellido: { text: atributosPersona.user.name.last },
 			};
 		});
 		
 		$.listView.listSection.setItems(personas);
-			
-	} else {
-		alert(_respuesta.error);	
+		
+	},
+	
+	// Error
+	error: function(_coleccion, _respuesta) {
+		alert('Error ' + JSON.stringify(_respuesta));	
 	}
 	
 });
+
 
 // Guardamos la referencia a la navigationWindow
 Alloy.Globals.navWindow = $.index;

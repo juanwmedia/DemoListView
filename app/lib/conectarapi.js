@@ -7,11 +7,11 @@ var obtenerPersonas = function(_callback) {
 	     // function called when the response data is available
 	     onload : function(e) {
 	     	
-	         Ti.API.info("Received text: " + this.responseText);
+	         //Ti.API.info("Received text: " + this.responseText);
 	         
 	         _callback({
 	         	exito: true,
-	         	datos: this.responseText
+	         	datos: JSON.parse(this.responseText),
 	         });
 	         
 	     },
