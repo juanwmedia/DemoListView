@@ -1,13 +1,7 @@
 // Cargamos el módulo para conectar con la API
 var api = require('conectarapi');
 
-// Callback click sobre una persona
-function personaClicada(_evento) {
-	var persona = $.listSection.getItemAt(_evento.itemIndex);
-	var mostrarPersona = Alloy.createController('detallePersona', persona).getView();
-	
-	Alloy.Globals.navWindow.openWindow(mostrarPersona);
-}
+$.index.title = "Demo ListView";
 
 // Obtenemos las personas
 api.obtenerPersonas(function(_respuesta){
@@ -29,7 +23,7 @@ api.obtenerPersonas(function(_respuesta){
 			};
 		});
 		
-		$.listSection.setItems(personas);
+		$.listView.listSection.setItems(personas);
 			
 	} else {
 		alert(_respuesta.error);	

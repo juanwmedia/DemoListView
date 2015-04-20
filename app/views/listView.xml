@@ -1,0 +1,19 @@
+<Alloy>
+	<ListView id="listView" defaultItemTemplate="persona" onItemclick="personaClicada">
+
+		<SearchBar />
+		<Templates>
+			<ItemTemplate name="persona" id="ItemTemplate">
+				<View id="filaPersona">
+					<ImageView bindId="foto" id="foto"/>
+					<Label bindId="nombre" id="nombre"/>
+					<Label bindId="apellido" id="apellido"/>
+				</View>
+			</ItemTemplate>
+		</Templates>
+		<ListSection id="listSection" headerTitle="Personas">
+			<ListItem id="listItem" ></ListItem>
+		</ListSection>/>
+
+	</ListView>
+</Alloy>

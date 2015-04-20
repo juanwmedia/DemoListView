@@ -36,6 +36,6 @@ $.correoe.addEventListener('click', function(_evento){
 });
 
 // Cerrar ventana
-$.cerrar.addEventListener('click', function(_evento){
-	Alloy.Globals.navWindow.closeWindow($.detallePersona);
-});
+function cerrarVentana() {	
+	(OS_IOS) ? Alloy.Globals.navWindow.closeWindow($.detallePersona) : $.detallePersona.close();
+}

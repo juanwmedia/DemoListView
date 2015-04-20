@@ -1,26 +1,11 @@
 <Alloy>
 	<NavigationWindow platform="ios">
-		<Window class="container" title="Demo List View">
-			
-			<ListView id="listView" defaultItemTemplate="persona" onItemclick="personaClicada">
-				
-				<SearchBar />
-
-				<Templates>
-					<ItemTemplate name="persona" id="ItemTemplate">
-						<View id="filaPersona">
-							<ImageView bindId="foto" id="foto"/>
-							<Label bindId="nombre" id="nombre"/>
-							<Label bindId="apellido" id="apellido"/>
-						</View>
-					</ItemTemplate>
-				</Templates>
-				
-				<ListSection id="listSection" headerTitle="Personas">
-					<ListItem id="listItem" ></ListItem>
-				</ListSection>/>
-
-			</ListView>
+		<Window class="container">
+			<Require src="listView" id="listView" />
 		</Window>
 	</NavigationWindow>
+	
+	<Window class="container" platform="android">
+		<Require src="listView" id="listView" />
+	</Window>
 </Alloy>
