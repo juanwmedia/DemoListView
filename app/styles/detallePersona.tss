@@ -1,0 +1,53 @@
+
+".container" : {
+  	backgroundColor: 'white',
+  	layout: 'vertical'
+}
+
+"#foto": {
+	width: "100%",
+}
+
+"#scrollView": {
+	layout:"vertical",
+	height:Ti.UI.FILL,
+	width:Ti.UI.FILL,
+	scrollType: "vertical",
+	backgroundColor: "#fff",
+}
+"#nombre": {
+	font: {
+		fontSize: 45
+	},
+	left: 5
+}
+
+"#telefono": {
+	font: {
+		fontSize: 18,
+		fontWeight: 'bold',
+	},
+	left: 5,
+	
+}
+"#correoe": {
+	font: {
+		fontSize: 18
+	},
+	left: 5,
+	color: "blue"
+}
+
+"#direccion": {
+	font: {
+		fontSize: 16
+	},
+	left: 5
+}
+
+"#bio": {
+	top: 10,
+	left: 5,
+	right: 5,
+	color: 'grey'
+}

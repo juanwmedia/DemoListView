@@ -1,0 +1,20 @@
+<Alloy>
+	<Window class="container">
+		
+		<LeftNavButton>
+			<Button id="cerrar" systemButton="BACK" />
+		</LeftNavButton>
+		
+		<ScrollView id="scrollView">
+			<ImageView id="foto"/>
+			
+			<Label id="nombre" />
+			<Label id="telefono" />
+			<Label id="correoe" />	
+			<Label id="direccion" />
+			
+			<Label id="bio"/>
+		</ScrollView>
+		
+	</Window>
+</Alloy>
